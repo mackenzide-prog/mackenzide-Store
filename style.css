@@ -346,3 +346,64 @@ body.catalogo .menu-icon .bar {
 body.catalogo .menu-icon.active .bar {
   background-color: #ff0055; /* Mantener rosa al abrir */
 }
+
+/* --- AJUSTE DE PORTADAS EN catalogo.html (mantiene tamaño y muestra portada completa) --- */
+body.catalogo .juego-card {
+  background-color: #111;
+  color: #fff;
+  width: 280px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+body.catalogo .juego-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(255, 0, 85, 0.4);
+}
+
+/* Imagen dentro de la card */
+body.catalogo .juego-card img {
+  width: 100%;
+  height: 380px;              /* Tamaño consistente con las cards originales */
+  object-fit: contain;        /* Muestra la imagen completa sin recortarla */
+  background-color: #000;     /* Fondo negro detrás de la imagen */
+  border-bottom: 2px solid #111;
+  border-radius: 8px 8px 0 0;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Texto debajo de la imagen */
+body.catalogo .juego-card h3 {
+  font-size: 1.1em;
+  margin: 12px 0 5px;
+}
+
+body.catalogo .juego-card p {
+  font-size: 0.95em;
+  color: #ccc;
+  margin: 4px 0;
+}
+
+/* --- BOTÓN ROSA SOLO EN catalogo.html --- */
+body.catalogo .menu-icon .bar {
+  background-color: #ff0055;
+}
+
+body.catalogo .menu-icon.active .bar {
+  background-color: #ff0055;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  body.catalogo .juego-card {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  body.catalogo .juego-card img {
+    height: 320px;
+  }
+}
