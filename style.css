@@ -57,24 +57,22 @@ header {
 }
 
 .menu-icon {
-  font-size: 1.6em;
-  background-color: #000;
-  color: white;
-  padding: 8px 14px;
+  font-size: 1.8em;
+  background: transparent; /* sin fondo negro */
+  color: #000; /* icono en negro */
   border: none;
+  padding: 6px 10px;
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 
 .menu-icon:hover {
-  background-color: #ff0055;
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 /* estado activo (abierto) */
 .menu-icon.active {
-  background-color: #ff0055;
   transform: rotate(90deg);
 }
 
@@ -291,8 +289,8 @@ header {
   }
 
   .menu-icon {
-    font-size: 1.4em;
-    padding: 8px 10px;
+    font-size: 1.6em;
+    padding: 6px 8px;
   }
 
   .hero {
