@@ -29,47 +29,31 @@
       margin: 0;
     }
 
-    header button {
-      background: #ff0055;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 8px;
-      color: #fff;
-      cursor: pointer;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    header button:hover {
-      background: #ff3377;
-      transform: scale(1.05);
-    }
-
+    /* Grilla de juegos estilo Epic */
     .catalogo-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 25px;
-      padding: 40px;
+      padding: 40px 60px;
     }
 
     .anime-card {
       background-color: #1a1a1a;
-      border-radius: 12px;
+      border-radius: 10px;
       overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
       text-decoration: none;
       color: inherit;
-      display: block;
     }
 
     .anime-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(255, 0, 85, 0.3);
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(255, 0, 85, 0.3);
     }
 
     .imagen-wrapper img {
       width: 100%;
-      height: 280px;
+      height: 300px;
       object-fit: cover;
       border-bottom: 1px solid #222;
     }
@@ -79,8 +63,10 @@
     }
 
     .anime-info h3 {
-      font-size: 1.1rem;
-      margin-bottom: 8px;
+      font-size: 1rem;
+      margin: 10px 0;
+      font-weight: 600;
+      color: #fff;
     }
 
     .anime-info ul {
@@ -97,16 +83,46 @@
 
     .precio {
       margin-top: 10px;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: bold;
       color: #ff0055;
+    }
+
+    /* Ajuste responsivo */
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 25px;
+      }
+      .catalogo-grid {
+        padding: 30px;
+        gap: 20px;
+      }
+      .imagen-wrapper img {
+        height: 240px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <h1 class="catalogo-titulo">Catálogo de Juegos</h1>
-    <a href="index.html"><button>🏠 Inicio</button></a>
+
+    <!-- Menú hamburguesa -->
+    <nav class="dropdown" aria-label="Navegación principal">
+      <button class="menu-icon" id="menu-btn" aria-expanded="false" aria-controls="menu-content" aria-label="Abrir menú">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <div class="dropdown-content" id="menu-content" role="menu">
+        <a href="index.html" role="menuitem">Inicio</a>
+        <a href="catalogo.html" role="menuitem">Catálogo</a>
+        <a href="buscar.html" role="menuitem">Buscar</a>
+        <hr class="menu-sep">
+        <a href="pedir.html" role="menuitem">Pedir un juego</a>
+        <a href="noticias.html" role="menuitem">Noticias</a>
+      </div>
+    </nav>
   </header>
 
   <main class="catalogo-grid">
@@ -152,5 +168,36 @@
       </div>
     </a>
   </main>
+
+  <!-- Script para menú hamburguesa -->
+  <script>
+    (function () {
+      const menuBtn = document.getElementById("menu-btn");
+      const menuContent = document.getElementById("menu-content");
+
+      menuBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        const opened = menuContent.classList.toggle("show");
+        menuBtn.classList.toggle("active", opened);
+        menuBtn.setAttribute("aria-expanded", opened ? "true" : "false");
+      });
+
+      window.addEventListener("click", function (e) {
+        if (!menuContent.contains(e.target) && e.target !== menuBtn) {
+          menuContent.classList.remove("show");
+          menuBtn.classList.remove("active");
+          menuBtn.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      window.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          menuContent.classList.remove("show");
+          menuBtn.classList.remove("active");
+          menuBtn.setAttribute("aria-expanded", "false");
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
