@@ -5,7 +5,7 @@ body {
   color: #000;
   margin: 0;
   padding: 0;
-  zoom: 1.15; /* 🔥 Hace que todo se vea más grande */
+  zoom: 1.15; /* hace que todo se vea más grande como pediste */
 }
 
 h1, h2, h3 {
@@ -15,11 +15,12 @@ h1, h2, h3 {
 p {
   text-align: center;
   line-height: 1.8;
-  font-size: 1.1em; /* texto más grande */
+  font-size: 1.1em;
 }
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 /* --- HEADER --- */
@@ -27,7 +28,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 50px; /* más espacio */
+  padding: 20px 50px;
   background: #fff;
   border-bottom: 1px solid #ccc;
 }
@@ -46,21 +47,84 @@ header {
 
 .header-left span {
   font-size: 1.3em;
+  font-weight: 400;
 }
 
-.home-btn {
-  font-size: 1em;
+/* --- MENÚ HAMBURGUESA --- */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-icon {
+  font-size: 1.6em;
+  background-color: #000;
+  color: white;
   padding: 8px 14px;
   border: none;
-  background: #000;
-  color: #fff;
-  border-radius: 6px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.menu-icon:hover {
+  background-color: #ff0055;
+  transform: scale(1.05);
+}
+
+/* estado activo (abierto) */
+.menu-icon.active {
+  background-color: #ff0055;
+  transform: rotate(90deg);
+}
+
+/* Contenedor del menú */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #fff;
+  min-width: 200px;
+  box-shadow: 0px 8px 24px rgba(0,0,0,0.18);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 100;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+  padding: 6px 0;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 18px;
+  display: block;
+  font-size: 0.98em;
+}
+
+.dropdown-content a:hover {
+  background-color: #ff0055;
+  color: white;
+}
+
+/* separador estilo */
+.menu-sep {
+  margin: 6px 12px;
+  border: none;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Mostrar menú */
+.dropdown-content.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* --- HERO --- */
 .hero {
   text-align: center;
-  padding: 120px 40px; /* más alto */
+  padding: 120px 40px;
 }
 
 .hero h1 {
@@ -170,6 +234,7 @@ header {
 .thank blockquote {
   font-style: italic;
   font-size: 1.5em;
+  margin: 0;
 }
 
 .profile {
@@ -213,25 +278,21 @@ header {
 }
 
 /* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .purchase-img img { width: 380px; }
+  .purchase-text { max-width: 420px; }
+}
+
 @media (max-width: 768px) {
-  body {
-    zoom: 1;
+  body { zoom: 1; }
+
+  header {
+    padding: 15px 25px;
   }
 
-  .purchase {
-    flex-direction: column;
-  }
-
-  .cards {
-    flex-direction: column;
-  }
-
-  .purchase-text {
-    text-align: center;
-  }
-
-  .purchase-text h3 {
-    text-align: center;
+  .menu-icon {
+    font-size: 1.4em;
+    padding: 8px 10px;
   }
 
   .hero {
@@ -245,4 +306,7 @@ header {
   .hero-image img {
     width: 100%;
   }
+
+  .cards { gap: 20px; }
+  .card { width: 100%; max-width: 420px; }
 }
