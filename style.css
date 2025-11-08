@@ -71,7 +71,7 @@ header {
   transition: transform 0.25s ease;
 }
 
-/* Las tres barras visibles: color NEGRO */
+/* Las tres barras visibles: color NEGRO por defecto */
 .menu-icon .bar {
   display: block;
   width: 26px;
@@ -336,4 +336,13 @@ header {
 
   .cards { gap: 20px; }
   .card { width: 100%; max-width: 420px; }
+}
+
+/* --- BOTÓN ROSA SOLO EN catalogo.html --- */
+body.catalogo .menu-icon .bar {
+  background-color: #ff0055; /* Rosa solo en catálogo */
+}
+
+body.catalogo .menu-icon.active .bar {
+  background-color: #ff0055; /* Mantener rosa al abrir */
 }
