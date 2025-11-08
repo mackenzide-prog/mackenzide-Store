@@ -56,27 +56,53 @@ header {
   display: inline-block;
 }
 
+/* Botón (contiene las 3 barras .bar) */
 .menu-icon {
-  font-size: 1.8em;
-  background: transparent; /* sin fondo negro */
-  color: #000; /* icono en negro */
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background: transparent; /* sin fondo */
   border: none;
-  padding: 6px 10px;
-  border-radius: 8px;
+  padding: 8px;
   cursor: pointer;
-  transition: all 0.25s ease;
+  border-radius: 8px;
+  transition: transform 0.25s ease;
 }
 
+/* Las tres barras visibles: color NEGRO */
+.menu-icon .bar {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background-color: #000; /* <-- barras negras sólidas */
+  border-radius: 3px;
+  transition: transform 0.28s cubic-bezier(.2,.9,.3,1), opacity 0.2s ease;
+  transform-origin: center;
+}
+
+/* Hover ligero para indicar interactividad */
 .menu-icon:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
-/* estado activo (abierto) */
-.menu-icon.active {
-  transform: rotate(90deg);
+/* Estado activo (abierto) -> transformar barras para formar la cruz */
+.menu-icon.active .bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.menu-icon.active .bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.menu-icon.active .bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
-/* Contenedor del menú */
+/* Opcional: cambia el color de la cruz al abrir (descomenta si quieres) */
+/* .menu-icon.active .bar { background-color: #ff0055; } */
+
+/* Contenedor del menú desplegable */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -289,8 +315,7 @@ header {
   }
 
   .menu-icon {
-    font-size: 1.6em;
-    padding: 6px 8px;
+    padding: 6px;
   }
 
   .hero {
