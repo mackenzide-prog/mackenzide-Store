@@ -33,39 +33,6 @@
       position: relative;
     }
 
-    /* Botón hamburguesa */
-    .menu-icon {
-      width: 30px;
-      height: 25px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    /* 💖 Color rosa SOLO aquí (no depende de style.css) */
-    .menu-icon .bar {
-      height: 4px;
-      width: 100%;
-      background-color: #ff0055 !important;
-      border-radius: 4px;
-      transition: all 0.3s ease;
-    }
-
-    .menu-icon.active .bar:nth-child(1) {
-      transform: rotate(45deg) translateY(10px);
-    }
-
-    .menu-icon.active .bar:nth-child(2) {
-      opacity: 0;
-    }
-
-    .menu-icon.active .bar:nth-child(3) {
-      transform: rotate(-45deg) translateY(-10px);
-    }
-
     /* MENÚ DESPLEGABLE */
     .dropdown-content {
       position: absolute;
