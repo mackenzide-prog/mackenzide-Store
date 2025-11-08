@@ -3,101 +3,121 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mackenzide Store</title>
+  <title>🛒 mackenzide Store</title>
+  
+  <!-- Favicon desde URL -->
+  <link rel="icon" type="image/png" href="https://i.pinimg.com/736x/9b/8e/ae/9b8eae73db4f223b6a428da86bb8318b.jpg" />
+
+  <!-- Estilos -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <div class="logo-text-header">mackenzide Store</div>
-    <button id="menu-toggle">☰</button>
+    <div class="header-left">
+      <img src="https://i.pinimg.com/736x/9b/8e/ae/9b8eae73db4f223b6a428da86bb8318b.jpg" alt="logo" class="logo">
+      <span>mackenzide Store</span>
+    </div>
+    <a href="#" class="home-btn">Home</a>
   </header>
 
-  <nav id="menu">
-    <ul>
-      <li><a href="catalogo.html">Catálogo</a></li>
-      <li><a href="noticias.html">Noticias</a></li>
-      <li><a href="buscador.html">Buscar</a></li>
-      <li><a href="subir.html">¿Cómo Subir Contenido?</a></li>
-    </ul>
-  </nav>
+  <!-- Título principal -->
+  <section class="hero">
+    <h1>mackenzide Store</h1>
+    <p>
+      Bienvenido a tu tienda Online Favorita! todos nuestros productos son 100% y baratos,
+      puedes elegir qué llevar y pago rápido a uno de nuestros empleados disponibles
+    </p>
+    <a href="#" class="btn">Ver Catálogo</a>
 
-  <main>
-    <!-- Hero principal -->
-    <section class="hero">
-      <div class="hero-overlay">
-        <div class="hero-text">
-          <h2>Bienvenido a <span class="highlight">mackenzide Store</span></h2>
-          <p>Todos nuestros productos son 100% digitales y baratos. Elige, paga rápido y disfruta.</p>
-        </div>
+    <div class="hero-image">
+      <img src="https://mackenzidestore.wordpress.com/wp-content/uploads/2025/11/1a8be19fe1a38c74752a91e837f805ec.jpg?w=1440" alt="anime girl" />
+    </div>
+  </section>
+
+  <!-- Sección ¿Por dónde empezar? -->
+  <section class="section">
+    <div class="separator">*</div>
+    <h2>¿Por donde empezar?</h2>
+    <p>¡Ofrecemos Todos estos!</p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Juegos Para Pc</h3>
+        <p>Tus Juegos Favoritos Para Pc</p>
       </div>
-    </section>
-
-    <!-- Sección de bienvenida estilo tienda -->
-    <section class="welcome-section">
-      <h2>¡Tu Tienda Online Favorita!</h2>
-      <p>Todos nuestros productos son 100% y baratos, puedes elegir tu llevar y pagar rápido a uno de nuestros empleados disponibles.</p>
-      <a href="catalogo.html" class="catalog-btn">Ver Catálogo</a>
-      <img src="https://mackenzidestore.wordpress.com/wp-content/uploads/2025/11/1a8be19fe1a38c74752a91e837f805ec.jpg?w=1440" alt="Ilustración emocional" class="welcome-img" />
-    </section>
-
-    <!-- Sección de categorías -->
-    <section class="categories">
-      <h2>¿Por dónde empezar?</h2>
-      <p>¡Ofrecemos Todos estos!</p>
-      <ul class="category-list">
-        <li><strong>Juegos Para PC:</strong> Juegos Favoritos Para PC</li>
-        <li><strong>Juegos Para Móvil:</strong> Algún juego divertido de móvil que desearías probar? pues ven!</li>
-        <li><strong>Juegos PS2, PS3, VITA, etc.:</strong> ¿Emulador que deseas probar? Este es el sitio!</li>
-        <li><strong>PDFs and Manager:</strong> Cualquier comic o manga en formato "PDFs", etc.</li>
-        <li><strong>HTML + CSS AND JS:</strong> Creación de Páginas Web como esta vía "Html + css" hasta en "JavaScript"!</li>
-        <li><strong>Solicitud:</strong> ¿Algo que no encuentras? Bien! Pues ordenanos, que no tenemos o no compra</li>
-      </ul>
-    </section>
-
-    <!-- Sección de métodos de compra -->
-    <section class="purchase-methods">
-      <h2>Métodos de Compra</h2>
-      <p>¿Cómo se compra en <strong>mackenzide Store</strong>?</p>
-      <ul>
-        <li>Busca tu contenido, vea especificaciones</li>
-        <li>Agregue al carrito y dele a "Realizar Compra"</li>
-        <li>Complete datos mínimos necesarios y disfrute</li>
-      </ul>
-      <img src="https://honeysanime.com/wp-content/uploads/2016/08/New-Game-wallpaper-20160815034724-604x500.jpg" alt="Personajes anime compra" class="purchase-img" />
-    </section>
-
-    <!-- Métodos de pago -->
-    <section class="payment-methods">
-      <h2>Métodos de Pago</h2>
-      <ul>
-        <li>Mercado Pago</li>
-        <li>Cualquier método que acepte MP</li>
-        <li>(no necesitan crear una cuenta en "mercadolibre Store" para comprar)</li>
-      </ul>
-      <img src="https://img.anmosugoi.com/file/media-sugoi/2021/07/animacion.jpeg" alt="Pago con yenes" class="payment-img" />
-    </section>
-
-    <!-- Agradecimiento final -->
-    <section class="thank-you">
-      <h2>Gracias por Su Compra</h2>
-      <div class="profile">
-        <img src="https://i.pinimg.com/736x/9b/8e/ae/9b8eae73db4f223b6a428da86bb8318b.jpg" alt="Perfil Mackenzie" class="profile-img" />
-        <p class="username">mackenziebb</p>
+      <div class="card">
+        <h3>Juegos Para Móvil</h3>
+        <p>Algún juego divertido de móvil que desearías probar? pues vente!</p>
       </div>
-    </section>
+      <div class="card">
+        <h3>Juegos PS2, PSVITA, GBA</h3>
+        <p>¿Emulador que deseas probar? Pues éntrale!</p>
+      </div>
+      <div class="card">
+        <h3>PDF’s And Manager</h3>
+        <p>Cualquier comic o manga en formato “PDF’s”, “zip/rar”, “cbr”.</p>
+      </div>
+      <div class="card">
+        <h3>HTML + CSS AND JS</h3>
+        <p>Creación de Páginas Web como esta vía “Html + css” y hasta en “JavaScript/js”.</p>
+      </div>
+      <div class="card">
+        <h3>Solicitud</h3>
+        <p>¿Algo que no encuentras? Bueno! Pues ordénanos, que no notros lo obtendremos para su compra</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Twitter -->
-    <section class="twitter-follow">
-      <h2>Visita Nuestro Twitter Oficial</h2>
-      <p>¡Síguenos!</p>
-      <a href="https://twitter.com/" class="twitter-btn">Seguir</a>
-    </section>
-  </main>
+  <!-- Métodos de compra -->
+  <section class="section">
+    <div class="separator">*</div>
+    <h2>Metodos de Compra</h2>
+    <p>¿Como Se compra en <strong>“mackenzide Store”</strong>?</p>
 
-  <script>
-    document.getElementById('menu-toggle').onclick = () => {
-      document.getElementById('menu').classList.toggle('visible');
-    };
-  </script>
+    <div class="purchase">
+      <div class="purchase-text">
+        <h3>Realización de pagos</h3>
+        <ul>
+          <li>Busque Su contenido favorito, vea especificaciones</li>
+          <li>Cuando decida que comprar dele a “Realizar Compra”</li>
+          <li>Complete datos mínimos necesarios y disfrute!</li>
+        </ul>
+      </div>
+      <div class="purchase-img">
+        <img src="https://honeysanime.com/wp-content/uploads/2016/08/New-Game-wallpaper-20160815034724-604x500.jpg" alt="New Game anime" />
+      </div>
+    </div>
+
+    <div class="purchase">
+      <div class="purchase-img">
+        <img src="https://i.pinimg.com/736x/9d/9b/1e/9d9b1edb7f60d83cc282dbeb057bffcb.jpg" alt="anime money" />
+      </div>
+      <div class="purchase-text">
+        <h3>Metodos de Pagos</h3>
+        <ul>
+          <li>Mercado Pago</li>
+          <li>Cualquier método que acepte MP</li>
+          <li>(No necesitar crear una cuenta en “mackenzide Store” para comprar)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agradecimiento -->
+  <section class="thank">
+    <blockquote>“Gracias por Su Compra.”</blockquote>
+    <div class="profile">
+      <img src="https://i.pinimg.com/736x/9b/8e/ae/9b8eae73db4f223b6a428da86bb8318b.jpg" alt="perfil" />
+      <p>mackenzide</p>
+    </div>
+  </section>
+
+  <!-- Twitter -->
+  <section class="twitter">
+    <h2>Visita Nuestro Twitter Oficial</h2>
+    <p>¡Síguenos!</p>
+    <a href="#" class="btn-black">Seguir</a>
+  </section>
 </body>
 </html>
