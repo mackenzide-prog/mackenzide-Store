@@ -5,6 +5,7 @@ body {
   color: #000;
   margin: 0;
   padding: 0;
+  zoom: 1.15; /* 🔥 Hace que todo se vea más grande */
 }
 
 h1, h2, h3 {
@@ -13,7 +14,8 @@ h1, h2, h3 {
 
 p {
   text-align: center;
-  line-height: 1.6;
+  line-height: 1.8;
+  font-size: 1.1em; /* texto más grande */
 }
 
 a {
@@ -25,7 +27,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 30px;
+  padding: 20px 50px; /* más espacio */
   background: #fff;
   border-bottom: 1px solid #ccc;
 }
@@ -33,69 +35,69 @@ header {
 .header-left {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .logo {
-  width: 25px;
-  height: 25px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
 }
 
 .header-left span {
-  font-size: 0.9em;
+  font-size: 1.3em;
 }
 
 .home-btn {
-  font-size: 0.7em;
-  padding: 4px 8px;
+  font-size: 1em;
+  padding: 8px 14px;
   border: none;
   background: #000;
   color: #fff;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
 /* --- HERO --- */
 .hero {
   text-align: center;
-  padding: 60px 20px;
+  padding: 120px 40px; /* más alto */
 }
 
 .hero h1 {
-  font-size: 2em;
-  margin-bottom: 10px;
+  font-size: 3em;
+  margin-bottom: 20px;
 }
 
 .hero p {
-  font-size: 0.9em;
-  max-width: 500px;
-  margin: 0 auto 20px;
+  font-size: 1.2em;
+  max-width: 700px;
+  margin: 0 auto 30px;
 }
 
 .btn {
   background: #ff0055;
   color: #fff;
-  padding: 6px 14px;
-  border-radius: 5px;
-  font-size: 0.8em;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 1em;
 }
 
 .hero-image img {
-  margin-top: 30px;
-  width: 90%;
-  max-width: 1000px;
-  border-radius: 10px;
+  margin-top: 40px;
+  width: 95%;
+  max-width: 1200px;
+  border-radius: 20px;
 }
 
 /* --- SECCIONES --- */
 .section {
-  padding: 60px 20px;
+  padding: 100px 40px;
   text-align: center;
 }
 
 .separator {
-  font-size: 1.2em;
-  margin-bottom: 10px;
+  font-size: 2em;
+  margin-bottom: 20px;
 }
 
 /* --- CARDS --- */
@@ -103,22 +105,22 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 25px;
-  margin-top: 40px;
+  gap: 40px;
+  margin-top: 50px;
 }
 
 .card {
-  width: 270px;
+  width: 320px;
 }
 
 .card h3 {
   font-weight: bold;
-  font-size: 1em;
+  font-size: 1.3em;
 }
 
 .card p {
-  font-size: 0.9em;
-  margin-top: 8px;
+  font-size: 1.1em;
+  margin-top: 10px;
 }
 
 /* --- MÉTODOS DE COMPRA --- */
@@ -127,17 +129,19 @@ header {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 30px;
-  margin-top: 40px;
+  gap: 50px;
+  margin-top: 60px;
 }
 
 .purchase-text {
-  max-width: 400px;
+  max-width: 500px;
   text-align: left;
+  font-size: 1.1em;
 }
 
 .purchase-text h3 {
   text-align: left;
+  font-size: 1.5em;
 }
 
 .purchase-text ul {
@@ -146,13 +150,13 @@ header {
 }
 
 .purchase-text li {
-  margin-bottom: 10px;
-  font-size: 0.9em;
+  margin-bottom: 12px;
+  font-size: 1.1em;
 }
 
 .purchase-img img {
-  width: 320px;
-  border-radius: 10px;
+  width: 450px;
+  border-radius: 15px;
 }
 
 /* --- AGRADECIMIENTO --- */
@@ -160,56 +164,60 @@ header {
   background: #000;
   color: #fff;
   text-align: center;
-  padding: 60px 20px;
+  padding: 100px 30px;
 }
 
 .thank blockquote {
   font-style: italic;
-  font-size: 1.2em;
+  font-size: 1.5em;
 }
 
 .profile {
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
 .profile img {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
 }
 
 .profile p {
-  font-size: 0.8em;
-  margin-top: 8px;
+  font-size: 1em;
+  margin-top: 10px;
 }
 
 /* --- TWITTER --- */
 .twitter {
   background: #f9f9f9;
-  padding: 60px 20px;
+  padding: 100px 30px;
   text-align: center;
 }
 
 .twitter h2 {
-  font-size: 1.4em;
-  margin-bottom: 10px;
+  font-size: 1.8em;
+  margin-bottom: 15px;
 }
 
 .twitter p {
-  font-size: 0.9em;
-  margin-bottom: 15px;
+  font-size: 1.1em;
+  margin-bottom: 20px;
 }
 
 .btn-black {
   background: #000;
   color: #fff;
-  padding: 6px 14px;
-  border-radius: 5px;
-  font-size: 0.8em;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 1em;
 }
 
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
+  body {
+    zoom: 1;
+  }
+
   .purchase {
     flex-direction: column;
   }
@@ -224,5 +232,17 @@ header {
 
   .purchase-text h3 {
     text-align: center;
+  }
+
+  .hero {
+    padding: 80px 20px;
+  }
+
+  .hero h1 {
+    font-size: 2em;
+  }
+
+  .hero-image img {
+    width: 100%;
   }
 }
