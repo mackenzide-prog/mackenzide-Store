@@ -347,11 +347,11 @@ body.catalogo .menu-icon.active .bar {
   background-color: #ff0055;
 }
 
-/* --- AJUSTE DE PORTADAS EN catalogo.html (más pequeñas, proporcionales y completas) --- */
+/* --- AJUSTE DE PORTADAS EN catalogo.html (más pequeñas y proporcionales) --- */
 body.catalogo .juego-card {
   background-color: #111;
   color: #fff;
-  width: 230px;
+  width: 215px;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
@@ -363,10 +363,9 @@ body.catalogo .juego-card:hover {
   box-shadow: 0 8px 25px rgba(255, 0, 85, 0.4);
 }
 
-/* Imagen dentro de la card */
 body.catalogo .juego-card img {
   width: 100%;
-  height: 300px;
+  height: 280px;
   object-fit: contain;
   background-color: #000;
   border-bottom: 2px solid #111;
@@ -374,7 +373,6 @@ body.catalogo .juego-card img {
   margin: 0 auto;
 }
 
-/* Texto debajo de la imagen */
 body.catalogo .juego-card h3 {
   font-size: 1em;
   margin: 10px 0 5px;
@@ -389,20 +387,20 @@ body.catalogo .juego-card p {
 /* --- Responsive --- */
 @media (max-width: 1024px) {
   body.catalogo .juego-card {
-    width: 200px;
+    width: 190px;
   }
   body.catalogo .juego-card img {
-    height: 260px;
+    height: 250px;
   }
 }
 
 @media (max-width: 768px) {
   body.catalogo .juego-card {
     width: 100%;
-    max-width: 340px;
+    max-width: 330px;
   }
 
   body.catalogo .juego-card img {
-    height: 280px;
+    height: 270px;
   }
 }
