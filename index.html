@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EnderVerse</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo-text-header">EnderVerse</div>
+    <button id="menu-toggle">☰</button>
+  </header>
+
+  <nav id="menu">
+    <ul>
+      <li><a href="catalogo.html">Mangas</a></li>
+      <li><a href="noticias.html">Noticias</a></li>
+      <li><a href="buscador.html">Buscar</a></li>
+      <li><a href="subir.html">¿Cómo Subir Mangas?</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Hero principal -->
+    <section class="hero">
+      <div class="hero-overlay">
+        <div class="hero-text">
+          <h2>Bienvenidos a <span class="highlight">EnderVerse</span></h2>
+          <p>Disfruta de tus mangas favoritos de manera gratuita y en español</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de bienvenida estilo tienda -->
+    <section class="welcome-section">
+      <h2>¡Tu Tienda Online Favorita!</h2>
+      <p>Todos nuestros productos son 100% digitales y accesibles. Elige, descarga y disfruta.</p>
+      <a href="catalogo.html" class="catalog-btn">Ver Catálogo</a>
+      <img src="https://endermanga.wordpress.com/wp-content/uploads/2025/10/ilustracion-corazones.png" alt="Ilustración emocional" class="welcome-img" />
+    </section>
+
+    <!-- Sección de categorías -->
+    <section class="categories">
+      <h2>¿Por dónde empezar?</h2>
+      <p>¡Ofrecemos todos estos!</p>
+      <ul class="category-list">
+        <li><strong>Juegos Para PC:</strong> Tus juegos favoritos para computadora.</li>
+        <li><strong>Juegos Para Móvil:</strong> ¿Algún juego divertido que deseas probar? ¡Aquí lo tienes!</li>
+        <li><strong>Juegos PS2, PSVITA, GBA:</strong> Emuladores y ROMs disponibles.</li>
+        <li><strong>PDFs y Manager:</strong> Comics y mangas en formato PDF.</li>
+        <li><strong>HTML + CSS + JS:</strong> Aprende a crear páginas web como esta.</li>
+        <li><strong>Solicitud:</strong> ¿No encuentras algo? ¡Solicítalo!</li>
+      </ul>
+    </section>
+
+    <!-- Sección de métodos de compra -->
+    <section class="purchase-methods">
+      <h2>Métodos de Compra</h2>
+      <p>¿Cómo se compra en <strong>EnderVerse Store</strong>?</p>
+      <ul>
+        <li>Busca tu contenido y revisa especificaciones.</li>
+        <li>Selecciona tu favorito y haz clic en "Realizar Compra".</li>
+        <li>Completa los datos mínimos necesarios y ¡disfruta!</li>
+      </ul>
+      <img src="https://endermanga.wordpress.com/wp-content/uploads/2025/10/newgame-cherry.png" alt="Personajes anime compra" class="purchase-img" />
+    </section>
+
+    <!-- Métodos de pago -->
+    <section class="payment-methods">
+      <h2>Métodos de Pago</h2>
+      <ul>
+        <li>Mercado Pago</li>
+        <li>Cualquier método que acepte MP</li>
+        <li>No necesitas cuenta en MercadoLibre Store para comprar</li>
+      </ul>
+      <img src="https://endermanga.wordpress.com/wp-content/uploads/2025/10/pago-yen.png" alt="Pago con yenes" class="payment-img" />
+    </section>
+
+    <!-- Agradecimiento final -->
+    <section class="thank-you">
+      <h2>Gracias por su compra</h2>
+      <div class="profile">
+        <img src="https://endermanga.wordpress.com/wp-content/uploads/2025/10/perfil-mackenzie.png" alt="Perfil Mackenzie" class="profile-img" />
+        <p class="username">mackenziebb</p>
+      </div>
+    </section>
+
+    <!-- Twitter -->
+    <section class="twitter-follow">
+      <h2>Visita Nuestro Twitter Oficial</h2>
+      <p>¡Síguenos!</p>
+      <a href="https://twitter.com/" class="twitter-btn">Seguir</a>
+    </section>
+
+    <!-- Discord -->
+    <section class="discord-call">
+      <h2>¡No olvides unirte a nuestro Discord!</h2>
+      <a href="https://discord.com/" class="discord-btn">¡Unirme Ya!</a>
+    </section>
+
+    <!-- Pedidos y Staff -->
+    <section class="discord-info balanced-layout">
+      <h2 class="discord-heading center">Por Supuesto</h2>
+      <div class="discord-content balanced">
+        <div class="discord-img-wrapper">
+          <img src="https://endermanga.wordpress.com/wp-content/uploads/2025/10/error.png" alt="Personaje manga" class="discord-img" />
+        </div>
+        <div class="discord-text centered-block">
+          <p>¿Quieres pedir algún manga? Usa el apartado de <strong>«Pedidos»</strong>.</p>
+          <p>¿Te gustaría ser parte del <strong>«Staff»</strong> o colaborar con <strong>EnderVerse</strong>? ¡Únete al <strong>Discord</strong>!</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('menu-toggle').onclick = () => {
+      document.getElementById('menu').classList.toggle('visible');
+    };
+  </script>
+</body>
+</html>
