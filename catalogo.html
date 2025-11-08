@@ -14,32 +14,94 @@
       padding: 0;
     }
 
+    /* HEADER */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 20px 40px;
-      border-bottom: 1px solid #222;
+      background-color: #0e0e0e; /* mismo fondo que el resto */
+      border: none; /* eliminamos la línea blanca */
     }
 
     header h1 {
       font-size: 1.8rem;
+      margin: 0;
     }
 
-    /* Botón hamburguesa */
-    .menu-toggle {
-      font-size: 28px;
-      color: #ff0055;
+    /* BOTÓN HAMBURGUESA ANIMADO */
+    nav {
+      position: relative;
+    }
+
+    .menu-icon {
+      width: 30px;
+      height: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       background: none;
       border: none;
       cursor: pointer;
-      transition: transform 0.3s;
     }
 
-    .menu-toggle.active {
-      transform: rotate(90deg);
+    .menu-icon .bar {
+      height: 4px;
+      width: 100%;
+      background-color: #ff0055;
+      border-radius: 4px;
+      transition: all 0.3s ease;
     }
 
+    .menu-icon.active .bar:nth-child(1) {
+      transform: rotate(45deg) translateY(10px);
+    }
+
+    .menu-icon.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-icon.active .bar:nth-child(3) {
+      transform: rotate(-45deg) translateY(-10px);
+    }
+
+    /* MENÚ DESPLEGABLE */
+    .dropdown-content {
+      position: absolute;
+      top: 50px;
+      right: 0;
+      background-color: #181818;
+      border-radius: 10px;
+      display: none;
+      flex-direction: column;
+      min-width: 180px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      z-index: 10;
+    }
+
+    .dropdown-content.show {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .dropdown-content a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-bottom: 1px solid #222;
+      transition: background 0.2s;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ff0055;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* CATÁLOGO */
     main.catalogo-grid {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
@@ -113,10 +175,27 @@
 <body>
   <header>
     <h1>Catálogo de Juegos</h1>
-    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <nav class="dropdown">
+      <button class="menu-icon" id="menu-btn" aria-expanded="false" aria-controls="menu-content">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <div class="dropdown-content" id="menu-content">
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="#">Buscar</a>
+        <hr style="border: 0; height: 1px; background: #333; margin: 5px 0;">
+        <a href="#">Pedir un juego</a>
+        <a href="#">Noticias</a>
+      </div>
+    </nav>
   </header>
 
-  <main class="catalogo-grid">
+  <!-- Aquí puedes copiar y pegar más tarjetas ANTES del <main> y se añadirán automáticamente -->
+  <main class="catalogo-grid" id="catalogo">
     <div class="juego-card" onclick="location.href='catalogo/valorant.html'">
       <img src="https://cdn1.epicgames.com/spt-assets/0b1283e5bfa64ad48f3862b79abc20b9/bendy-and-the-ink-machine-1lsmb.png?resize=1&w=360&h=480&quality=medium" alt="VALORANT" />
       <div class="juego-info">
@@ -191,13 +270,34 @@
   </main>
 
   <script>
-    const menuToggle = document.getElementById('menuToggle');
-    let isOpen = false;
+    // --- Menú Hamburguesa (misma animación del index) ---
+    (function () {
+      const menuBtn = document.getElementById("menu-btn");
+      const menuContent = document.getElementById("menu-content");
 
-    menuToggle.addEventListener('click', () => {
-      isOpen = !isOpen;
-      menuToggle.textContent = isOpen ? '✖' : '☰';
-    });
+      menuBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        const opened = menuContent.classList.toggle("show");
+        menuBtn.classList.toggle("active", opened);
+        menuBtn.setAttribute("aria-expanded", opened ? "true" : "false");
+      });
+
+      window.addEventListener("click", function (e) {
+        if (!menuContent.contains(e.target) && e.target !== menuBtn) {
+          menuContent.classList.remove("show");
+          menuBtn.classList.remove("active");
+          menuBtn.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      window.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          menuContent.classList.remove("show");
+          menuBtn.classList.remove("active");
+          menuBtn.setAttribute("aria-expanded", "false");
+        }
+      });
+    })();
   </script>
 </body>
 </html>
