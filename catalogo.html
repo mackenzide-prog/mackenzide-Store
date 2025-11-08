@@ -8,8 +8,8 @@
   <style>
     body {
       background-color: #0e0e0e;
-      color: #fff;
-      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
     }
@@ -19,185 +19,185 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 40px;
-      background-color: #111;
-      border-bottom: 1px solid #333;
-    }
-
-    .catalogo-titulo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin: 0;
-    }
-
-    /* Grilla de juegos estilo Epic */
-    .catalogo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-      padding: 40px 60px;
-    }
-
-    .anime-card {
-      background-color: #1a1a1a;
-      border-radius: 10px;
-      overflow: hidden;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .anime-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 20px rgba(255, 0, 85, 0.3);
-    }
-
-    .imagen-wrapper img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
       border-bottom: 1px solid #222;
     }
 
-    .anime-info {
-      padding: 15px;
+    header h1 {
+      font-size: 1.8rem;
     }
 
-    .anime-info h3 {
+    /* Botón hamburguesa */
+    .menu-toggle {
+      font-size: 28px;
+      color: #ff0055;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .menu-toggle.active {
+      transform: rotate(90deg);
+    }
+
+    main.catalogo-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .juego-card {
+      background-color: #181818;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+
+    .juego-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 20px rgba(255, 0, 85, 0.2);
+    }
+
+    .juego-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .juego-info {
+      padding: 12px 15px;
+    }
+
+    .juego-info h3 {
       font-size: 1rem;
-      margin: 10px 0;
-      font-weight: 600;
-      color: #fff;
+      margin: 5px 0;
     }
 
-    .anime-info ul {
+    .juego-info ul {
       list-style: none;
       padding: 0;
       margin: 0;
-      color: #aaa;
-      font-size: 0.9rem;
-    }
-
-    .anime-info ul li {
-      margin: 3px 0;
+      font-size: 0.85rem;
+      color: #ccc;
     }
 
     .precio {
-      margin-top: 10px;
-      font-size: 0.95rem;
-      font-weight: bold;
       color: #ff0055;
+      font-weight: bold;
+      margin-top: 8px;
+      display: block;
     }
 
-    /* Ajuste responsivo */
-    @media (max-width: 768px) {
-      header {
-        padding: 15px 25px;
+    @media (max-width: 1200px) {
+      main.catalogo-grid {
+        grid-template-columns: repeat(4, 1fr);
       }
-      .catalogo-grid {
-        padding: 30px;
-        gap: 20px;
+    }
+
+    @media (max-width: 900px) {
+      main.catalogo-grid {
+        grid-template-columns: repeat(3, 1fr);
       }
-      .imagen-wrapper img {
-        height: 240px;
+    }
+
+    @media (max-width: 600px) {
+      main.catalogo-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1 class="catalogo-titulo">Catálogo de Juegos</h1>
-
-    <!-- Menú hamburguesa -->
-    <nav class="dropdown" aria-label="Navegación principal">
-      <button class="menu-icon" id="menu-btn" aria-expanded="false" aria-controls="menu-content" aria-label="Abrir menú">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-      <div class="dropdown-content" id="menu-content" role="menu">
-        <a href="index.html" role="menuitem">Inicio</a>
-        <a href="catalogo.html" role="menuitem">Catálogo</a>
-        <a href="buscar.html" role="menuitem">Buscar</a>
-        <hr class="menu-sep">
-        <a href="pedir.html" role="menuitem">Pedir un juego</a>
-        <a href="noticias.html" role="menuitem">Noticias</a>
-      </div>
-    </nav>
+    <h1>Catálogo de Juegos</h1>
+    <button class="menu-toggle" id="menuToggle">☰</button>
   </header>
 
   <main class="catalogo-grid">
-    <a href="catalogo/valorant.html" class="anime-card">
-      <div class="imagen-wrapper">
-        <img src="https://www.doblajevideojuegos.es/portadas/portada_valorant.jpg" alt="Valorant" />
-      </div>
-      <div class="anime-info">
+    <div class="juego-card" onclick="location.href='catalogo/valorant.html'">
+      <img src="https://cdn2.unrealengine.com/egs-valorant-ep6-5standardedition-riotgames-s1-2560x1440-03b94ad7e01f.jpg" alt="VALORANT" />
+      <div class="juego-info">
         <h3>VALORANT</h3>
         <ul>
           <li>Juego base</li>
           <li>Riot Games</li>
         </ul>
-        <p class="precio">Gratis</p>
+        <span class="precio">Gratis</span>
       </div>
-    </a>
+    </div>
 
-    <a href="catalogo/gta-v.html" class="anime-card">
-      <div class="imagen-wrapper">
-        <img src="https://cdn1.epicgames.com/offer/b0cd075465c44f87be3b505ac04a2e46/GTAV_CHARM_Epic_FirstParty_PortraitFOB_1200x1600_R02_1200x1600-a5528b33df876e64f5dee728830c80a3?resize=1&w=360&h=480&quality=medium" alt="GTA V Enhanced" />
-      </div>
-      <div class="anime-info">
+    <div class="juego-card" onclick="location.href='catalogo/gta-v.html'">
+      <img src="https://cdn1.epicgames.com/offer/91cc736f33e84b84b3f5e10f116e1d35/EGS_GrandTheftAutoVEnhanced_RockstarGames_S1_2560x1440-91b95e7d750d4f95a5d04095cfb8db7b" alt="GTA V" />
+      <div class="juego-info">
         <h3>Grand Theft Auto V Enhanced</h3>
         <ul>
           <li>Juego base</li>
           <li>Rockstar Games</li>
         </ul>
-        <p class="precio">29,99 US$</p>
+        <span class="precio">29,99 US$</span>
       </div>
-    </a>
+    </div>
 
-    <a href="catalogo/fnaf-into-the-pit.html" class="anime-card">
-      <div class="imagen-wrapper">
-        <img src="https://cdn1.epicgames.com/spt-assets/5c65df08b03a43eb8be026116ef8e979/five-nights-at-freddys-into-the-pit-161gk.png?resize=1&w=360&h=480&quality=medium" alt="FNAF Into the Pit" />
-      </div>
-      <div class="anime-info">
-        <h3>Five Nights at Freddy's: Into the Pit</h3>
+    <div class="juego-card" onclick="location.href='catalogo/fnaf.html'">
+      <img src="https://cdn2.unrealengine.com/egs-fivenightsatfreddys-intothepit-clickteamllc-s1-2560x1440-38b4047851e7.jpg" alt="Five Nights at Freddy's" />
+      <div class="juego-info">
+        <h3>Five Nights at Freddy’s: Into the Pit</h3>
         <ul>
           <li>Juego base</li>
           <li>Steel Wool Studios</li>
         </ul>
-        <p class="precio">8,99 US$</p>
+        <span class="precio">8,99 US$</span>
       </div>
-    </a>
+    </div>
+
+    <div class="juego-card" onclick="location.href='catalogo/bendy.html'">
+      <img src="https://cdn1.epicgames.com/offer/cc3b4b38b20b457a8e4d8a9338df72b1/EGS_BendyandtheInkMachine_KindlyBeast_S1_2560x1440-5c31e86c37b179d3abf1e171df93ee04" alt="Bendy" />
+      <div class="juego-info">
+        <h3>Bendy and the Ink Machine</h3>
+        <ul>
+          <li>Juego base</li>
+          <li>Kindly Beast</li>
+        </ul>
+        <span class="precio">8,99 US$</span>
+      </div>
+    </div>
+
+    <div class="juego-card" onclick="location.href='catalogo/battlefield6.html'">
+      <img src="https://cdn1.epicgames.com/offer/2c49dc1a145c46f8b3f4080c8d7d37b9/EGS_Battlefield2042_ElectronicArts_S1_2560x1440-cff7994a78ed29fda0e1d22b6128b8ee" alt="Battlefield 6" />
+      <div class="juego-info">
+        <h3>Battlefield™ 6</h3>
+        <ul>
+          <li>Juego base</li>
+          <li>EA Games</li>
+        </ul>
+        <span class="precio">69,99 US$</span>
+      </div>
+    </div>
+
+    <div class="juego-card" onclick="location.href='catalogo/crosshairx.html'">
+      <img src="https://cdn1.epicgames.com/offer/36f205282b284ef89c91984e5890b556/EGS_CrosshairX_Crux_S1_2560x1440-92b43b3e7d3a.jpg" alt="Crosshair X" />
+      <div class="juego-info">
+        <h3>Crosshair X</h3>
+        <ul>
+          <li>Juego base</li>
+          <li>Crux</li>
+        </ul>
+        <span class="precio">4,49 US$</span>
+      </div>
+    </div>
   </main>
 
-  <!-- Script para menú hamburguesa -->
   <script>
-    (function () {
-      const menuBtn = document.getElementById("menu-btn");
-      const menuContent = document.getElementById("menu-content");
+    const menuToggle = document.getElementById('menuToggle');
+    let isOpen = false;
 
-      menuBtn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        const opened = menuContent.classList.toggle("show");
-        menuBtn.classList.toggle("active", opened);
-        menuBtn.setAttribute("aria-expanded", opened ? "true" : "false");
-      });
-
-      window.addEventListener("click", function (e) {
-        if (!menuContent.contains(e.target) && e.target !== menuBtn) {
-          menuContent.classList.remove("show");
-          menuBtn.classList.remove("active");
-          menuBtn.setAttribute("aria-expanded", "false");
-        }
-      });
-
-      window.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") {
-          menuContent.classList.remove("show");
-          menuBtn.classList.remove("active");
-          menuBtn.setAttribute("aria-expanded", "false");
-        }
-      });
-    })();
+    menuToggle.addEventListener('click', () => {
+      isOpen = !isOpen;
+      menuToggle.textContent = isOpen ? '✖' : '☰';
+    });
   </script>
 </body>
 </html>
