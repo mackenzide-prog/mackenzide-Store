@@ -33,6 +33,7 @@
       position: relative;
     }
 
+    /* Botón hamburguesa */
     .menu-icon {
       width: 30px;
       height: 25px;
@@ -44,10 +45,11 @@
       cursor: pointer;
     }
 
-    /* 🔥 IMPORTANTE: eliminamos color aquí, lo maneja style.css */
+    /* 💖 Color rosa SOLO aquí (no depende de style.css) */
     .menu-icon .bar {
       height: 4px;
       width: 100%;
+      background-color: #ff0055;
       border-radius: 4px;
       transition: all 0.3s ease;
     }
@@ -64,6 +66,7 @@
       transform: rotate(-45deg) translateY(-10px);
     }
 
+    /* MENÚ DESPLEGABLE */
     .dropdown-content {
       position: absolute;
       top: 50px;
@@ -99,6 +102,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* CATÁLOGO */
     main.catalogo-grid {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
@@ -151,19 +155,24 @@
     }
 
     @media (max-width: 1200px) {
-      main.catalogo-grid { grid-template-columns: repeat(4, 1fr); }
+      main.catalogo-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
     }
 
     @media (max-width: 900px) {
-      main.catalogo-grid { grid-template-columns: repeat(3, 1fr); }
+      main.catalogo-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
     @media (max-width: 600px) {
-      main.catalogo-grid { grid-template-columns: repeat(2, 1fr); }
+      main.catalogo-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   </style>
 </head>
-
 <body class="catalogo">
   <header>
     <h1>Catálogo de Juegos</h1>
@@ -187,8 +196,77 @@
   </header>
 
   <main class="catalogo-grid" id="catalogo">
-    <!-- tarjetas de juegos -->
-    <!-- (no se modifican, ya funcionan con rutas) -->
+    <div class="juego-card" onclick="location.href='catalogo/valorant.html'">
+      <img src="https://cdn1.epicgames.com/spt-assets/0b1283e5bfa64ad48f3862b79abc20b9/bendy-and-the-ink-machine-1lsmb.png" alt="VALORANT" />
+      <div class="juego-info">
+        <h3>VALORANT</h3>
+        <ul>
+          <li>Juego base</li>
+          <li>Riot Games</li>
+        </ul>
+        <span class="precio">Gratis</span>
+      </div>
+    </div>
+
+    <div class="juego-card" onclick="location.href='catalogo/gta-v.html'">
+      <img src="https://cdn1.epicgames.com/spt-assets/0b1283e5bfa64ad48f3862b79abc20b9/bendy-and-the-ink-machine-1lsmb.png" />
+      <div class="juego-info">
+        <h3>Grand Theft Auto V Enhanced</h3>
+        <ul>
+          <li>Juego base</li>
+          <li>Rockstar Games</li>
+        </ul>
+        <span class="precio">29,99 US$</span>
+      </div>
+    </div>
+
+    <div class="juego-card" onclick="location.href='catalogo/fnaf.html'">
+      <img src="https://cdn1.epicgames.com/spt-assets/0b1283e5bfa64ad48f3862b79abc20b9/bendy-and-the-ink-machine-1lsmb.png" alt="Five Nights at Freddy's" />
+      <div class="juego-info">
+        <h3>Five Nights at Freddy’s: Into the Pit</h3>
+        <ul>
+          <li>Juego base</li>
+          <li>Steel Wool Studios</li>
+        </ul>
+        <span class="precio">8,99 US$</span>
+      </div>
+    </div>
+
+    <div class="juego-card" onclick="location.href='catalogo/bendy.html'">
+      <img src="https://cdn1.epicgames.com/spt-assets/0b1283e5bfa64ad48f3862b79abc20b9/bendy-and-the-ink-machine-1lsmb.png" alt="Bendy" />
+      <div class="juego-info">
+        <h3>Bendy and the Ink Machine</h3>
+        <ul>
+          <li>Juego base</li>
+          <li>Kindly Beast</li>
+        </ul>
+        <span class="precio">8,99 US$</span>
+      </div>
+    </div>
+
+    <div class="juego-card" onclick="location.href='catalogo/battlefield6.html'">
+      <img src="https://cdn1.epicgames.com/spt-assets/0b1283e5bfa64ad48f3862b79abc20b9/bendy-and-the-ink-machine-1lsmb.png" alt="Battlefield 6" />
+      <div class="juego-info">
+        <h3>Battlefield™ 6</h3>
+        <ul>
+          <li>Juego base</li>
+          <li>EA Games</li>
+        </ul>
+        <span class="precio">69,99 US$</span>
+      </div>
+    </div>
+
+    <div class="juego-card" onclick="location.href='catalogo/crosshairx.html'">
+      <img src="https://cdn1.epicgames.com/spt-assets/0b1283e5bfa64ad48f3862b79abc20b9/bendy-and-the-ink-machine-1lsmb.png" alt="Crosshair X" />
+      <div class="juego-info">
+        <h3>Crosshair X</h3>
+        <ul>
+          <li>Juego base</li>
+          <li>Crux</li>
+        </ul>
+        <span class="precio">4,49 US$</span>
+      </div>
+    </div>
   </main>
 
   <script>
