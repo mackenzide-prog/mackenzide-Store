@@ -22,14 +22,14 @@
     <!-- Menú hamburguesa -->
     <nav class="dropdown" aria-label="Navegación principal">
       <button class="menu-icon" id="menu-btn" aria-expanded="false" aria-controls="menu-content" aria-label="Abrir menú">
-        ☰
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
       </button>
       <div class="dropdown-content" id="menu-content" role="menu">
-        <!-- Editable: cambia textos y rutas aquí -->
         <a href="indie.html" role="menuitem">Inicio</a>
         <a href="indie.html" role="menuitem">Catálogo</a>
         <a href="indie.html" role="menuitem">Buscar</a>
-        <!-- Puedes añadir más enlaces -->
         <hr class="menu-sep">
         <a href="catalogo.html" role="menuitem">Mangas</a>
         <a href="noticias.html" role="menuitem">Noticias</a>
@@ -138,56 +138,33 @@
     <a href="#" class="btn-black">Seguir</a>
   </section>
 
-  <!-- Script: abrir/cerrar menú y cambiar icono -->
+  <!-- Script: abrir/cerrar menú -->
   <script>
     (function () {
       const menuBtn = document.getElementById("menu-btn");
       const menuContent = document.getElementById("menu-content");
 
-      // alternar menú
       menuBtn.addEventListener("click", function (e) {
         e.stopPropagation();
         const opened = menuContent.classList.toggle("show");
         menuBtn.classList.toggle("active", opened);
-
-        // accesibilidad
         menuBtn.setAttribute("aria-expanded", opened ? "true" : "false");
-
-        // cambiar ícono entre hamburguesa y cruz
-        menuBtn.textContent = opened ? "✕" : "☰";
       });
 
-      // cerrar si se hace clic fuera
       window.addEventListener("click", function (e) {
         if (!menuContent.contains(e.target) && e.target !== menuBtn) {
           menuContent.classList.remove("show");
           menuBtn.classList.remove("active");
-          menuBtn.textContent = "☰";
           menuBtn.setAttribute("aria-expanded", "false");
         }
       });
 
-      // cerrar con tecla Escape
       window.addEventListener("keydown", function (e) {
         if (e.key === "Escape") {
           menuContent.classList.remove("show");
           menuBtn.classList.remove("active");
-          menuBtn.textContent = "☰";
           menuBtn.setAttribute("aria-expanded", "false");
         }
-      });
-
-      // Si el usuario hace tab dentro del menú y sale, cerrarlo (mejora accesibilidad)
-      menuContent.addEventListener("focusout", function (e) {
-        // espera un tick para que activeElement se actualice
-        setTimeout(() => {
-          if (!menuContent.contains(document.activeElement) && document.activeElement !== menuBtn) {
-            menuContent.classList.remove("show");
-            menuBtn.classList.remove("active");
-            menuBtn.textContent = "☰";
-            menuBtn.setAttribute("aria-expanded", "false");
-          }
-        }, 0);
       });
     })();
   </script>
