@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bendy and the Ink Machine</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    gap: 40px;
+  }
+
+  .main-content {
+    flex: 2.5;
+  }
+
+  .sidebar {
+    flex: 1;
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    height: fit-content;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+
+  .rating {
+    color: #fff;
+    margin-bottom: 15px;
+  }
+
+  /* Slider */
+  .slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .slides img,
+  .slides video {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 50%;
+  }
+
+  .arrow.left { left: 10px; }
+  .arrow.right { right: 10px; }
+
+  /* Miniaturas */
+  .thumbnails {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    overflow-x: auto;
+  }
+
+  .thumbnails img, .thumbnails video {
+    width: 100px;
+    height: 60px;
+    border-radius: 6px;
+    object-fit: cover;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+  }
+
+  .thumbnails img.active,
+  .thumbnails video.active {
+    opacity: 1;
+    border: 2px solid #ff0055;
+  }
+
+  /* Secciones */
+  section {
+    margin-top: 30px;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  li {
+    margin-bottom: 8px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    background: #333;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+  }
+
+  /* Sidebar */
+  .sidebar img {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .price {
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 10px 0;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .buy-btn {
+    background: #0078ff;
+    color: white;
+  }
+
+  .cart-btn, .wishlist-btn {
+    background: #2c2c2c;
+    color: #fff;
+  }
+
+  .footer-info {
+    font-size: 0.85rem;
+    color: #bbb;
+    margin-top: 20px;
+    border-top: 1px solid #333;
+    padding-top: 10px;
+  }
+
+  @media (max-width: 900px) {
+    .container {
+      flex-direction: column;
+      padding: 20px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="main-content">
+    <h1 id="titulo"></h1>
+    <div class="rating" id="rating"></div>
+
+    <div class="slider" id="slider">
+      <div class="slides" id="slides"></div>
+      <button class="arrow left" id="prev">&#10094;</button>
+      <button class="arrow right" id="next">&#10095;</button>
+    </div>
+    <div class="thumbnails" id="thumbnails"></div>
+
+    <section>
+      <h2>Descripción</h2>
+      <p id="descripcion"></p>
+    </section>
+
+    <section>
+      <h2>Géneros</h2>
+      <div class="tags" id="generos"></div>
+    </section>
+
+    <section>
+      <h2>Funciones</h2>
+      <div class="tags" id="funciones"></div>
+    </section>
+
+    <section>
+      <h2>Requisitos del sistema</h2>
+      <div id="requisitos"></div>
+    </section>
+  </div>
+
+  <aside class="sidebar">
+    <img id="logo" alt="logo del juego">
+    <div class="price" id="precio"></div>
+    <button class="btn buy-btn">Comprar ahora</button>
+    <button class="btn cart-btn">Añadir al carrito</button>
+    <button class="btn wishlist-btn">A la lista de deseos</button>
+
+    <div class="footer-info" id="info"></div>
+  </aside>
+</div>
+
+<script>
+const juego = {
+  titulo: "Bendy and the Ink Machine",
+  rating: "★ 4.6 | Muy recomendable",
+  descripcion: "Bendy and the Ink Machine® es el primer juego de terror, rompecabezas y acción en primera persona que acabará para siempre con tu amor infantil por los dibujos animados.",
+  generos: ["Exploración", "Primera persona", "Terror"],
+  funciones: ["Compatible con mando", "Guardado en la nube", "Un solo jugador"],
+  precio: "8,99 US$",
+  logo: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/622650/header.jpg",
+  info: `
+    <strong>Desarrolladora:</strong> Joey Drew Studios<br>
+    <strong>Editora:</strong> Joey Drew Studios<br>
+    <strong>Fecha de lanzamiento:</strong> 09/09/25<br>
+    <strong>Lanzamiento inicial:</strong> 09/02/17<br>
+    <strong>Plataforma:</strong> Windows
+  `,
+  requisitos: {
+    minimos: {
+      "Versión del sistema operativo": "Windows 10",
+      "CPU": "64 bits",
+      "Memoria": "8 GB",
+      "GPU": "Tarjeta gráfica dedicada (4 GB)",
+      "DirectX": "12",
+      "Almacenamiento": "2 GB"
+    },
+    recomendados: {
+      "Versión del sistema operativo": "Windows 11",
+      "CPU": "64 bits",
+      "Memoria": "8 GB",
+      "GPU": "Tarjeta gráfica dedicada (4 GB)",
+      "DirectX": "12",
+      "Almacenamiento": "2 GB"
+    }
+  },
+  imagenes: [
+    { num: 1, page: "https://www.youtube.com/embed/7c_xdTnVPos" },
+    { num: 2, page: "https://video.akamai.steamstatic.com/store_trailers/256679401/movie480.webm?t=1497589417" },
+    { num: 3, page: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/622650/31876c3b562d5837a263b81dd505ae45c9dfce2e/ss_31876c3b562d5837a263b81dd505ae45c9dfce2e.1920x1080.jpg?t=1762956668" },
+    { num: 4, page: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/622650/06e9f7d9f6acb550afc423b2cde48160633db805/ss_06e9f7d9f6acb550afc423b2cde48160633db805.1920x1080.jpg?t=1762956668"},
+    { num: 5, page: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/622650/da64295055cc7247e8a2dbe631e0e9d134e718c9/ss_da64295055cc7247e8a2dbe631e0e9d134e718c9.1920x1080.jpg?t=1762956668" }
+  ]
+};
+
+// ====== Render ======
+document.getElementById('titulo').textContent = juego.titulo;
+document.getElementById('rating').textContent = juego.rating;
+document.getElementById('descripcion').textContent = juego.descripcion;
+document.getElementById('precio').textContent = juego.precio;
+document.getElementById('logo').src = juego.logo;
+document.getElementById('info').innerHTML = juego.info;
+
+for (let g of juego.generos) {
+  const tag = document.createElement('div');
+  tag.className = 'tag';
+  tag.textContent = g;
+  document.getElementById('generos').appendChild(tag);
+}
+
+for (let f of juego.funciones) {
+  const tag = document.createElement('div');
+  tag.className = 'tag';
+  tag.textContent = f;
+  document.getElementById('funciones').appendChild(tag);
+}
+
+// Requisitos
+let reqHTML = `
+<div style="display:flex; gap:30px; flex-wrap:wrap;">
+  <div><h3>🖥️ Mínimos</h3><ul>
+    ${Object.entries(juego.requisitos.minimos).map(([k,v])=>`<li><strong>${k}:</strong> ${v}</li>`).join('')}
+  </ul></div>
+  <div><h3>⚙️ Recomendado</h3><ul>
+    ${Object.entries(juego.requisitos.recomendados).map(([k,v])=>`<li><strong>${k}:</strong> ${v}</li>`).join('')}
+  </ul></div>
+</div>`;
+document.getElementById('requisitos').innerHTML = reqHTML;
+
+// Slider
+const slides = document.getElementById('slides');
+const thumbnails = document.getElementById('thumbnails');
+let index = 0;
+
+juego.imagenes.forEach((item, i) => {
+  let slideEl;
+  if (item.page.endsWith('.webm') || item.page.includes('youtube')) {
+    slideEl = document.createElement('video');
+    slideEl.src = item.page;
+    slideEl.loop = true;
+    slideEl.autoplay = i === 0;
+    slideEl.muted = true;
+  } else {
+    slideEl = document.createElement('img');
+    slideEl.src = item.page;
+  }
+  slides.appendChild(slideEl);
+
+  const thumb = document.createElement(item.page.endsWith('.webm') ? 'video' : 'img');
+  thumb.src = item.page;
+  thumb.addEventListener('click', () => showSlide(i));
+  thumbnails.appendChild(thumb);
+});
+
+function showSlide(i) {
+  index = i;
+  slides.style.transform = `translateX(${-index * 100}%)`;
+  document.querySelectorAll('.thumbnails *').forEach((el, idx) => {
+    el.classList.toggle('active', idx === index);
+  });
+}
+
+document.getElementById('next').onclick = () => {
+  index = (index + 1) % juego.imagenes.length;
+  showSlide(index);
+};
+document.getElementById('prev').onclick = () => {
+  index = (index - 1 + juego.imagenes.length) % juego.imagenes.length;
+  showSlide(index);
+};
+
+showSlide(0);
+</script>
+</body>
+</html>
