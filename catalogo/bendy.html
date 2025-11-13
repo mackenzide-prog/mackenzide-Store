@@ -20,10 +20,7 @@
     gap: 40px;
   }
 
-  .main-content {
-    flex: 2.5;
-  }
-
+  .main-content { flex: 2.5; }
   .sidebar {
     flex: 1;
     background: #1e1e1e;
@@ -32,16 +29,8 @@
     height: fit-content;
   }
 
-  h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 5px;
-  }
-
-  .rating {
-    color: #fff;
-    margin-bottom: 15px;
-  }
+  h1 { font-size: 2rem; font-weight: 700; margin-bottom: 5px; }
+  .rating { color: #fff; margin-bottom: 15px; }
 
   /* Slider */
   .slider {
@@ -49,63 +38,33 @@
     overflow: hidden;
     border-radius: 10px;
   }
-
-  .slides {
-    display: flex;
-    transition: transform 0.5s ease;
-  }
-
-  .slides img,
-  .slides video {
+  .slides { display: flex; transition: transform 0.5s ease; }
+  .slides img, .slides video, .slides iframe {
     width: 100%;
     border-radius: 10px;
   }
-
   .arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 30px;
-    background: rgba(0,0,0,0.5);
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    padding: 8px 12px;
-    border-radius: 50%;
+    position: absolute; top: 50%; transform: translateY(-50%);
+    font-size: 30px; background: rgba(0,0,0,0.5);
+    color: #fff; border: none; cursor: pointer;
+    padding: 8px 12px; border-radius: 50%;
   }
-
   .arrow.left { left: 10px; }
   .arrow.right { right: 10px; }
 
   /* Miniaturas */
   .thumbnails {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-    overflow-x: auto;
+    display: flex; gap: 10px; margin-top: 10px; overflow-x: auto;
   }
-
   .thumbnails img, .thumbnails video {
-    width: 100px;
-    height: 60px;
-    border-radius: 6px;
-    object-fit: cover;
-    cursor: pointer;
-    opacity: 0.7;
-    transition: opacity 0.3s;
+    width: 100px; height: 60px; border-radius: 6px;
+    object-fit: cover; cursor: pointer; opacity: 0.7; transition: opacity 0.3s;
+  }
+  .thumbnails img.active, .thumbnails video.active {
+    opacity: 1; border: 2px solid #ff0055;
   }
 
-  .thumbnails img.active,
-  .thumbnails video.active {
-    opacity: 1;
-    border: 2px solid #ff0055;
-  }
-
-  /* Secciones */
-  section {
-    margin-top: 30px;
-  }
-
+  section { margin-top: 30px; }
   h2 {
     font-size: 1.3rem;
     border-bottom: 2px solid #333;
@@ -113,74 +72,29 @@
     margin-bottom: 15px;
   }
 
-  ul {
-    list-style: none;
-    padding-left: 0;
-  }
+  ul { list-style: none; padding-left: 0; }
+  li { margin-bottom: 8px; }
 
-  li {
-    margin-bottom: 8px;
-  }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag { background: #333; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; }
 
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .tag {
-    background: #333;
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 0.85rem;
-  }
-
-  /* Sidebar */
-  .sidebar img {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  .price {
-    font-size: 1.2rem;
-    color: #fff;
-    margin: 10px 0;
-  }
+  .sidebar img { width: 100%; margin-bottom: 10px; }
+  .price { font-size: 1.2rem; color: #fff; margin: 10px 0; }
 
   .btn {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1rem;
-    margin-bottom: 10px;
+    width: 100%; padding: 12px; border: none; border-radius: 6px;
+    cursor: pointer; font-weight: bold; font-size: 1rem; margin-bottom: 10px;
   }
-
-  .buy-btn {
-    background: #0078ff;
-    color: white;
-  }
-
-  .cart-btn, .wishlist-btn {
-    background: #2c2c2c;
-    color: #fff;
-  }
+  .buy-btn { background: #0078ff; color: white; }
+  .cart-btn, .wishlist-btn { background: #2c2c2c; color: #fff; }
 
   .footer-info {
-    font-size: 0.85rem;
-    color: #bbb;
-    margin-top: 20px;
-    border-top: 1px solid #333;
-    padding-top: 10px;
+    font-size: 0.85rem; color: #bbb; margin-top: 20px;
+    border-top: 1px solid #333; padding-top: 10px;
   }
 
   @media (max-width: 900px) {
-    .container {
-      flex-direction: column;
-      padding: 20px;
-    }
+    .container { flex-direction: column; padding: 20px; }
   }
 </style>
 </head>
@@ -225,7 +139,6 @@
     <button class="btn buy-btn">Comprar ahora</button>
     <button class="btn cart-btn">Añadir al carrito</button>
     <button class="btn wishlist-btn">A la lista de deseos</button>
-
     <div class="footer-info" id="info"></div>
   </aside>
 </div>
@@ -265,11 +178,13 @@ const juego = {
     }
   },
   imagenes: [
-    { num: 1, page: "https://www.youtube.com/embed/7c_xdTnVPos" },
-    { num: 2, page: "https://video.akamai.steamstatic.com/store_trailers/256679401/movie480.webm?t=1497589417" },
-    { num: 3, page: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/622650/31876c3b562d5837a263b81dd505ae45c9dfce2e/ss_31876c3b562d5837a263b81dd505ae45c9dfce2e.1920x1080.jpg?t=1762956668" },
-    { num: 4, page: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/622650/06e9f7d9f6acb550afc423b2cde48160633db805/ss_06e9f7d9f6acb550afc423b2cde48160633db805.1920x1080.jpg?t=1762956668"},
-    { num: 5, page: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/622650/da64295055cc7247e8a2dbe631e0e9d134e718c9/ss_da64295055cc7247e8a2dbe631e0e9d134e718c9.1920x1080.jpg?t=1762956668" }
+    { num: 1, page: "https://www.youtube.com/watch?v=7c_xdTnVPos" },
+    { num: 2, page: "https://video.akamai.steamstatic.com/store_trailers/256679401/movie480.webm" },
+    { num: 3, page: "https://mega.nz/embed/abcdef#123456" },
+    { num: 4, page: "https://ok.ru/videoembed/1234567890" },
+    { num: 5, page: "https://www.streamwish.to/e/abcd1234" },
+    { num: 6, page: "https://www.streamtape.com/e/xyz9876" },
+    { num: 7, page: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/622650/06e9f7d9f6acb550afc423b2cde48160633db805/ss_06e9f7d9f6acb550afc423b2cde48160633db805.1920x1080.jpg" }
   ]
 };
 
@@ -287,7 +202,6 @@ for (let g of juego.generos) {
   tag.textContent = g;
   document.getElementById('generos').appendChild(tag);
 }
-
 for (let f of juego.funciones) {
   const tag = document.createElement('div');
   tag.className = 'tag';
@@ -307,26 +221,62 @@ let reqHTML = `
 </div>`;
 document.getElementById('requisitos').innerHTML = reqHTML;
 
-// Slider
+// === Slider mejorado ===
 const slides = document.getElementById('slides');
 const thumbnails = document.getElementById('thumbnails');
 let index = 0;
 
-juego.imagenes.forEach((item, i) => {
-  let slideEl;
-  if (item.page.endsWith('.webm') || item.page.includes('youtube')) {
-    slideEl = document.createElement('video');
-    slideEl.src = item.page;
-    slideEl.loop = true;
-    slideEl.autoplay = i === 0;
-    slideEl.muted = true;
-  } else {
-    slideEl = document.createElement('img');
-    slideEl.src = item.page;
-  }
-  slides.appendChild(slideEl);
+function crearElementoMedia(url, autoplay = false) {
+  const lower = url.toLowerCase();
 
-  const thumb = document.createElement(item.page.endsWith('.webm') ? 'video' : 'img');
+  if (lower.endsWith('.mp4') || lower.endsWith('.webm')) {
+    const video = document.createElement('video');
+    video.src = url;
+    video.autoplay = autoplay;
+    video.loop = true;
+    video.muted = true;
+    video.controls = true;
+    video.style.width = "100%";
+    return video;
+  }
+
+  if (url.includes("youtube.com") || url.includes("youtu.be")) {
+    const videoId = url.split("v=")[1] || url.split("/").pop();
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=${autoplay ? 1 : 0}&mute=1`;
+    iframe.allow = "autoplay; encrypted-media";
+    iframe.frameBorder = "0";
+    iframe.allowFullscreen = true;
+    iframe.style.width = "100%";
+    iframe.style.height = "480px";
+    return iframe;
+  }
+
+  if (url.includes("steamstatic.com") || url.includes("mega.nz") ||
+      url.includes("ok.ru") || url.includes("streamwish") ||
+      url.includes("streamtape")) {
+    const iframe = document.createElement('iframe');
+    iframe.src = url;
+    iframe.allow = "autoplay; fullscreen";
+    iframe.frameBorder = "0";
+    iframe.allowFullscreen = true;
+    iframe.style.width = "100%";
+    iframe.style.height = "480px";
+    return iframe;
+  }
+
+  const img = document.createElement('img');
+  img.src = url;
+  img.style.width = "100%";
+  return img;
+}
+
+// Crear slides y miniaturas
+juego.imagenes.forEach((item, i) => {
+  const media = crearElementoMedia(item.page, i === 0);
+  slides.appendChild(media);
+
+  const thumb = document.createElement('img');
   thumb.src = item.page;
   thumb.addEventListener('click', () => showSlide(i));
   thumbnails.appendChild(thumb);
