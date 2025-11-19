@@ -127,6 +127,17 @@
     .container { flex-direction: column; padding: 20px; }
     .slider { aspect-ratio: auto; height: auto; }
   }
+
+  /* === EFECTO ELEVACIÓN (copiado desde style.css) === */
+  .btn {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 25px rgba(255, 0, 85, 0.4);
+  }
+
 </style>
 </head>
 <body>
@@ -168,7 +179,6 @@
     <img id="logo" alt="logo del juego">
     <div class="price" id="precio"></div>
 
-    <!-- 🔥 BOTONES MODIFICADOS CON IDS -->
     <button class="btn buy-btn" id="btn-buy">Comprar ahora</button>
     <button class="btn cart-btn" id="btn-cart">Añadir al carrito</button>
     <button class="btn wishlist-btn" id="btn-wish">A la lista de deseos</button>
