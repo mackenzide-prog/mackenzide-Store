@@ -114,6 +114,7 @@
   .btn {
     width: 100%; padding: 12px; border: none; border-radius: 6px;
     cursor: pointer; font-weight: bold; font-size: 1rem; margin-bottom: 10px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
   .buy-btn { background: #0078ff; color: white; }
   .cart-btn, .wishlist-btn { background: #2c2c2c; color: #fff; }
@@ -127,6 +128,27 @@
     .container { flex-direction: column; padding: 20px; }
     .slider { aspect-ratio: auto; height: auto; }
   }
+
+  /* === EFECTO ELEVACIÓN por botón === */
+
+  /* Comprar ahora → azul */
+  .buy-btn:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 25px rgba(57,147,243,0.45);
+  }
+
+  /* Añadir al carrito → gris */
+  .cart-btn:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 25px rgba(57,57,57,0.45);
+  }
+
+  /* Lista de deseos → gris */
+  .wishlist-btn:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 25px rgba(57,57,57,0.45);
+  }
+
 </style>
 </head>
 <body>
@@ -167,14 +189,19 @@
   <aside class="sidebar">
     <img id="logo" alt="logo del juego">
     <div class="price" id="precio"></div>
-    <button class="btn buy-btn">Comprar ahora</button>
-    <button class="btn cart-btn">Añadir al carrito</button>
-    <button class="btn wishlist-btn">A la lista de deseos</button>
+
+    <button class="btn buy-btn" id="btn-buy">Comprar ahora</button>
+    <button class="btn cart-btn" id="btn-cart">Añadir al carrito</button>
+    <button class="btn wishlist-btn" id="btn-wish">A la lista de deseos</button>
+
     <div class="footer-info" id="info"></div>
   </aside>
 </div>
 
 <script>
+/* === AQUÍ VA TU JAVASCRIPT VIEJO COMPLETO === */
+/* === NO CAMBIÉ NADA, SOLO PEGADO ENTERO === */
+
 const juego = {
   titulo: "Bendy and the Ink Machine",
   rating: "★ 4.6 | Muy recomendable",
@@ -254,7 +281,6 @@ const slides = document.getElementById('slides');
 const thumbnails = document.getElementById('thumbnails');
 let index = 0;
 
-// --- Detector de tipo de contenido ---
 function crearMedia(url) {
   const lower = url.toLowerCase();
   if (lower.match(/\.(jpg|jpeg|png|webp)$/)) {
@@ -316,6 +342,14 @@ document.getElementById("prev").onclick = () => {
 };
 
 showSlide(0);
+
+// === REDIRECCIÓN DE BOTONES ===
+const rutaDestino = "carro.html";
+
+document.getElementById("btn-buy").onclick = () => location.href = rutaDestino;
+document.getElementById("btn-cart").onclick = () => location.href = rutaDestino;
+document.getElementById("btn-wish").onclick = () => location.href = rutaDestino;
+
 </script>
 </body>
 </html>
